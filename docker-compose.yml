@@ -1,0 +1,27 @@
+version: '3'
+services:
+  database_sqlserver:
+    build: ./Database
+    container_name: database_sqlserver
+    restart: always
+    ports:
+      - 1433:1433
+
+  webapi:
+    build: ./API.proj
+    container_name: webapi
+    restart: always
+    ports:
+      - 58081:80
+    depends_on:
+      - database_sqlserver
+
+#  razorpages:
+#    build: ./RazorPages.proj
+#    container_name: razorpages
+#    restart: always
+#    ports:
+#      - 58080:80
+#    depends_on:
+#      - database_sqlserver
+#      - webapi
