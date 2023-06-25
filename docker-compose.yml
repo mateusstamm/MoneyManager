@@ -1,16 +1,31 @@
-version: '3.3'
+version: '3'
 services:
-  database:
-    build: ./Database
-    container_name: database
+  db_mysql:
+    container_name: db_mysql
+    build:
+      context: ./MoneyManager.DB
+      dockerfile: Dockerfile
     restart: always
     ports:
-      - 14333:1433
-  moneymanager:
-    build: ./RazorPages.proj
-    container_name: moneymanager
+      - 3306:3306
+  webapi:
+    container_name: webapi
+    build:
+      context: ./MoneyManager.API
+      dockerfile: Dockerfile
     restart: always
     ports:
-      - 58080:80
+      - 50000:80
     depends_on:
-      - database
+      - db_mysql
+  razorpages:
+    container_name: razorpages
+    build:
+      context: ./MoneyManager.Pages
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 50001:80
+    depends_on:
+      - db_mysql
+      - webapi

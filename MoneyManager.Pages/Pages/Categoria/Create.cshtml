@@ -1,0 +1,32 @@
+@page
+@model MoneyManager.Pages.Pages.Categoria.Create
+
+<link rel="stylesheet" href="~/lib/css/estilo.css"/>
+
+<div class="home">
+    <h1>Adicionar Categoria</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CategoriaModel.Nome"></label>
+                    <input asp-for="CategoriaModel.Nome" class="form-control" />
+                    <span asp-validation-for="CategoriaModel.Nome" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="CategoriaModel.Descricao"></label>
+                    <input asp-for="CategoriaModel.Descricao" class="form-control" />
+                    <span asp-validation-for="CategoriaModel.Descricao" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="botao">
+                    <input type="submit" class="btn btn-primary" value="Salvar" />
+                    <a asp-page="/Categoria/Index" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+@page
+@model MoneyManager.Pages.Pages.Transacao.Index
+
+<link rel="stylesheet" href="~/lib/css/estilo.css" />
+
+<div class="home">
+    <h1>Transações Cadastradas</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="info">
+        <div></div>
+        <table class="table table-bordered table-sm table-hover-custom">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transacaoModel in Model.TransacaoList)
+                {
+                    <tr>
+                        <td>@transacaoModel.TransacaoID</td>
+                        <td>@transacaoModel.Nome</td>
+                        <td>@transacaoModel.Descricao</td>
+                        <td>@transacaoModel.Valor</td>
+                        <td>@transacaoModel.Categoria.Nome</td>
+                        <td>@transacaoModel.Data</td>
+                        <td>
+                            <a class="btn btn-sm btn-secondary active" asp-page="./Edit" asp-route-id="@transacaoModel.TransacaoID"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-secondary btn-sm btn-success" asp-page="./Details" asp-route-id="@transacaoModel.TransacaoID"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-secondary btn-sm btn-danger" asp-page="./Delete" asp-route-id="@transacaoModel.TransacaoID"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p style="text-align:center"><a class="btn btn-primary" role="button" asp-page="./Create"><strong>Nova transação</strong></a></p>
+    </div>
+</div>
