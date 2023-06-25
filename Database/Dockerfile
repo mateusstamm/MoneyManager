@@ -1,7 +1,8 @@
-FROM mcr.microsoft.com/mssql/server:2022-CU4-ubuntu-20.04
+FROM mcr.microsoft.com/mssql/server:2022-latest
 
+USER root
 ENV ACCEPT_EULA=Y
-ENV MSSQL_SA_PASSWORD=MoneyManager*123
+ENV MSSQL_SA_PASSWORD=MoneyManager@*@2023
 
 #COPY ./scripts/ /docker-entrypoint-initdb.d
 

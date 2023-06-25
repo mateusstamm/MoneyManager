@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\MoneyManager\\RazorPages.Proj\\wwwroot\\favicon-16x16.png",
+      "PackagePath": "staticwebassets\\favicon-16x16.png"
+    },
+    {
+      "Id": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\MoneyManager\\RazorPages.Proj\\wwwroot\\favicon-32x32.png",
+      "PackagePath": "staticwebassets\\favicon-32x32.png"
+    },
+    {
       "Id": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\MoneyManager\\RazorPages.Proj\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -243,6 +251,10 @@
     {
       "Id": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\MoneyManager\\RazorPages.Proj\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\MoneyManager\\RazorPages.Proj\\wwwroot\\logo.png",
+      "PackagePath": "staticwebassets\\logo.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.RazorPages.Proj.Microsoft.AspNetCore.StaticWebAssets.props",
