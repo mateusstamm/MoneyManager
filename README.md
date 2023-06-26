@@ -1,6 +1,6 @@
 # Money Manager
 
-![Logo](MoneyManager.Pages\wwwroot\images\logo.png)
+![Logo](/MoneyManager.Pages/wwwroot/images/logo.png)
 
 Money Manager é um aplicativo web para gerenciamento financeiro pessoal, onde os usuários podem acompanhar suas despesas e receitas, categorizar transações, definir metas financeiras e visualizar relatórios detalhados.
 
