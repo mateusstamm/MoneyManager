@@ -1,0 +1,29 @@
+@page
+@model MoneyManager.Pages.Pages.Dashboard.Index
+
+<link rel="stylesheet" href="~/lib/css/estilo.css"/>
+
+<div class="home">
+    <h1>Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container">
+                <h3>Gasto Total</h3>
+                <h4>@Model.GastoTotal.ToString("C2")</h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="container">
+                <h3>Receita Total</h3>
+                <h4>@Model.ReceitaTotal.ToString("C2")</h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="container">
+                <h3>Saldo Total</h3>
+                <h4>@Model.SaldoTotal.ToString("C2")</h4>
+            </div>
+        </div>
+    </div>
+</div>

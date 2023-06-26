@@ -1,7 +1,7 @@
 @page
 @model MoneyManager.Pages.Pages.Categoria.Create
 
-<link rel="stylesheet" href="~/lib/css/estilo.css"/>
+<link rel="stylesheet" href="~/lib/css/estilo.css" />
 
 <div class="home">
     <h1>Adicionar Categoria</h1>
@@ -20,6 +20,15 @@
                     <label asp-for="CategoriaModel.Descricao"></label>
                     <input asp-for="CategoriaModel.Descricao" class="form-control" />
                     <span asp-validation-for="CategoriaModel.Descricao" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="CategoriaModel.Tipo"></label>
+                    <select asp-for="CategoriaModel.Tipo" class="form-control">
+                        <option value="Despesa">Despesa</option>
+                        <option value="Receita">Receita</option>
+                    </select>
+                    <span asp-validation-for="CategoriaModel.Tipo" class="text-danger"></span>
                 </div>
                 <br />
                 <div class="botao">

@@ -1,24 +1,63 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MoneyManager.Pages.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MoneyManager.Pages.Pages.Transacao
 {
     public class Delete : PageModel
     {
-        private readonly ILogger<Delete> _logger;
+        [BindProperty]
+        public TransacaoModel TransacaoModel { get; set; } = new TransacaoModel();
 
-        public Delete(ILogger<Delete> logger)
+        public Delete()
         {
-            _logger = logger;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var httpClient = new HttpClient();
+            var url = $"http://webapi/api/Transacao/{id}";
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
+            var response = await httpClient.SendAsync(requestMessage);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return NotFound();
+            }
+
+            var content = await response.Content.ReadAsStringAsync();
+            TransacaoModel = JsonConvert.DeserializeObject<TransacaoModel>(content);
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            var httpClient = new HttpClient();
+            var url = $"http://webapi/api/Transacao/{id}";
+            var requestMessage = new HttpRequestMessage(HttpMethod.Delete, url);
+            var response = await httpClient.SendAsync(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToPage("/Transacao/Index");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }

@@ -1,11 +1,17 @@
-@page
+@page "{id:int}"
 @model MoneyManager.Pages.Pages.Transacao.Details
-@{
-    ViewData["Title"] = "Details";
-}
 
-<h1>@ViewData["Title"]</h1>
+<link rel="stylesheet" href="~/lib/css/estilo.css"/>
 
-<div>
-    
+<div class="home">
+    <h1>Detalhes da Transação: @Model.TransacaoModel.Nome</h1>
+
+    <div class="info">
+        <p><strong>Nome: </strong> @Model.TransacaoModel.Nome </p>
+        <p><strong>Descrição: </strong> @Model.TransacaoModel.Descricao </p>
+        <p><strong>Valor: </strong> @Model.TransacaoModel.Valor </p>
+        <p><strong>Categoria: </strong> @Model.TransacaoModel.Categoria?.Nome </p>
+        <p><strong>Data: </strong> @Model.TransacaoModel.Data </p>
+        <div align="center"><a class="btn btn-sm btn-primary" asp-page="Index">Voltar</a></div>
+    </div>
 </div>

@@ -30,7 +30,7 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label asp-for="TransacaoModel.Categoria.Nome"></label>
+                    <label asp-for="TransacaoModel.CategoriaID"></label>
                     <select asp-for="TransacaoModel.CategoriaID" asp-items="Model.CategoriaList">
                         <option value="">Selecione uma categoria</option>
                     </select>
@@ -39,8 +39,8 @@
                 <br />
                 <div class="form-group">
                     <label asp-for="TransacaoModel.Data"></label>
-                    <input asp-for="TransacaoModel.Data" class="form-control" />
-                    <span asp-validation-for="TransacaoModel.Data" class="text-dange"></span>
+                    <input asp-for="TransacaoModel.Data" class="form-control" type="date" step="1" />
+                    <span asp-validation-for="TransacaoModel.Data" class="text-danger"></span>
                 </div>
                 <br />
                 <div class="botao">

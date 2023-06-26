@@ -8,7 +8,7 @@ namespace MoneyManager.Pages.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ?TransacaoID { get; set; }
+        public int TransacaoID { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório!")]
         public string ?Nome { get; set; }
@@ -19,9 +19,9 @@ namespace MoneyManager.Pages.Models
         public decimal ?Valor { get; set; }
 
         [ForeignKey("Categoria")]
-        public int ?CategoriaID { get; set; }
+        public int? CategoriaID { get; set; }
 
-        public CategoriaModel ?Categoria { get; set; }
+        public CategoriaModel? Categoria { get; set; }
 
         public DateTime ?Data { get; set; }
     }

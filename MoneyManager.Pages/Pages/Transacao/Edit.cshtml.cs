@@ -6,18 +6,22 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MoneyManager.Pages.Pages.Transacao
 {
     public class Edit : PageModel
     {
-        [BindProperty]
-        public TransacaoModel TransacaoModel { get; set; } = new TransacaoModel();
+        private readonly HttpClient _httpClient;
 
-        public List<SelectListItem> CategoriaList { get; set; } = new List<SelectListItem>();
+        [BindProperty]
+        public TransacaoModel TransacaoModel { get; set; }
+
+        public List<SelectListItem> CategoriaList { get; set; }
 
         public Edit()
         {
+            _httpClient = new HttpClient();
         }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -27,10 +31,8 @@ namespace MoneyManager.Pages.Pages.Transacao
                 return NotFound();
             }
 
-            var httpClient = new HttpClient();
             var url = $"http://webapi/api/Transacao/{id}";
-            var requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
-            var response = await httpClient.SendAsync(requestMessage);
+            var response = await _httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -53,14 +55,16 @@ namespace MoneyManager.Pages.Pages.Transacao
                 return Page();
             }
 
-            var httpClient = new HttpClient();
+            // Set the CategoriaID for the TransacaoModel
+            TransacaoModel.CategoriaID = int.Parse(Request.Form["TransacaoModel.CategoriaID"]);
+
             var url = $"http://webapi/api/Transacao/{id}";
             var transacaoJson = JsonConvert.SerializeObject(TransacaoModel);
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Put, url);
             requestMessage.Content = new StringContent(transacaoJson, Encoding.UTF8, "application/json");
 
-            var response = await httpClient.SendAsync(requestMessage);
+            var response = await _httpClient.SendAsync(requestMessage);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -73,9 +77,8 @@ namespace MoneyManager.Pages.Pages.Transacao
 
         private async Task LoadCategoriaList()
         {
-            var httpClient = new HttpClient();
             var url = "http://webapi/api/Categoria";
-            var response = await httpClient.GetAsync(url);
+            var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {

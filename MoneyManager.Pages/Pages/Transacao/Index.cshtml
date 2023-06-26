@@ -30,7 +30,7 @@
                         <td>@transacaoModel.Descricao</td>
                         <td>@transacaoModel.Valor</td>
                         <td>@transacaoModel.Categoria.Nome</td>
-                        <td>@transacaoModel.Data</td>
+                        <td>@(transacaoModel.Data.HasValue ? transacaoModel.Data.Value.Date.ToString("dd/MM/yyyy") : string.Empty)</td>
                         <td>
                             <a class="btn btn-sm btn-secondary active" asp-page="./Edit" asp-route-id="@transacaoModel.TransacaoID"><i class="fa fa-pencil"></i></a>
                             <a class="btn btn-secondary btn-sm btn-success" asp-page="./Details" asp-route-id="@transacaoModel.TransacaoID"><i class="fa fa-eye"></i></a>

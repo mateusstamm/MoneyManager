@@ -1,24 +1,42 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MoneyManager.Pages.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MoneyManager.Pages.Pages.Transacao
 {
     public class Details : PageModel
     {
-        private readonly ILogger<Details> _logger;
+        [BindProperty]
+        public TransacaoModel TransacaoModel { get; set; } = new TransacaoModel();
 
-        public Details(ILogger<Details> logger)
+        public Details()
         {
-            _logger = logger;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var httpClient = new HttpClient();
+            var url = $"http://webapi/api/Transacao/{id}";
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
+            var response = await httpClient.SendAsync(requestMessage);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return NotFound();
+            }
+
+            var content = await response.Content.ReadAsStringAsync();
+            TransacaoModel = JsonConvert.DeserializeObject<TransacaoModel>(content);
+
+            return Page();
         }
     }
 }

@@ -21,8 +21,9 @@ namespace MoneyManager.API.Models
         public DateTime Data { get; set; }
 
         [ForeignKey("Categoria")]
-        public int CategoriaID { get; set; }
+        public int? CategoriaID { get; set; }
 
-        public CategoriaModel ?Categoria { get; set; }
+        public CategoriaModel? Categoria { get; set; }
+
     }
 }

@@ -11,5 +11,8 @@ namespace MoneyManager.API.Models
         public string Nome { get; set; }
 
         public string Descricao { get; set; }
+
+        [Required]
+        public string Tipo { get; set; }
     }
 }

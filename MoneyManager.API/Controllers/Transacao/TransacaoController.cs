@@ -41,11 +41,17 @@ namespace MoneyManager.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] TransacaoModel transacao)
         {
+            if (transacao.CategoriaID.HasValue)
+            {
+                transacao.Categoria = _context.Categorias.Find(transacao.CategoriaID);
+            }
+
             _context.Transacoes.Add(transacao);
             _context.SaveChanges();
 
             return CreatedAtAction(nameof(Get), new { id = transacao.TransacaoID }, transacao);
         }
+
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] TransacaoModel transacao)
@@ -55,11 +61,17 @@ namespace MoneyManager.API.Controllers
                 return BadRequest();
             }
 
+            if (transacao.CategoriaID.HasValue)
+            {
+                transacao.Categoria = _context.Categorias.Find(transacao.CategoriaID);
+            }
+
             _context.Entry(transacao).State = EntityState.Modified;
             _context.SaveChanges();
 
             return NoContent();
         }
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
