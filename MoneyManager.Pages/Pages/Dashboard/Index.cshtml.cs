@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoneyManager.Pages.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -15,6 +16,8 @@ namespace MoneyManager.Pages.Pages.Dashboard
         public decimal GastoTotal { get; set; }
         public decimal ReceitaTotal { get; set; }
         public decimal SaldoTotal { get; set; }
+        public List<TransacaoModel> Transacoes { get; set; }
+
         public IndexModel(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient();
@@ -23,19 +26,20 @@ namespace MoneyManager.Pages.Pages.Dashboard
         public async Task OnGetAsync()
         {
             await LoadGastoTotalAsync();
+            await LoadTransacoesAsync();
         }
 
         private async Task LoadGastoTotalAsync()
         {
             // Obter a lista de transações
-            var transacoesResponse = await _httpClient.GetAsync("http://localhost:50000/api/Transacao");
+            var transacoesResponse = await _httpClient.GetAsync("http://webapi/api/Transacao");
             if (transacoesResponse.IsSuccessStatusCode)
             {
                 var transacoesContent = await transacoesResponse.Content.ReadAsStringAsync();
                 var transacoes = JsonConvert.DeserializeObject<List<TransacaoModel>>(transacoesContent);
 
                 // Obter a lista de categorias
-                var categoriasResponse = await _httpClient.GetAsync("http://localhost:50000/api/Categoria");
+                var categoriasResponse = await _httpClient.GetAsync("http://webapi/api/Categoria");
                 if (categoriasResponse.IsSuccessStatusCode)
                 {
                     var categoriasContent = await categoriasResponse.Content.ReadAsStringAsync();
@@ -61,6 +65,25 @@ namespace MoneyManager.Pages.Pages.Dashboard
             {
                 // Lidar com o erro de requisição das transações
             }
+        }
+
+        private async Task LoadTransacoesAsync()
+        {
+            var transacoesResponse = await _httpClient.GetAsync("http://webapi/api/Transacao");
+            if (transacoesResponse.IsSuccessStatusCode)
+            {
+                var transacoesContent = await transacoesResponse.Content.ReadAsStringAsync();
+                Transacoes = JsonConvert.DeserializeObject<List<TransacaoModel>>(transacoesContent);
+            }
+            else
+            {
+                // Lidar com o erro de requisição das transações
+            }
+        }
+
+        public string FormatDate(DateTime? date)
+        {
+            return date?.ToString("yyyy-MM-dd");
         }
     }
 }

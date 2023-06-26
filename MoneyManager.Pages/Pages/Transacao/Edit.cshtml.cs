@@ -31,7 +31,7 @@ namespace MoneyManager.Pages.Pages.Transacao
                 return NotFound();
             }
 
-            var url = $"http://localhost:50000/api/Transacao/{id}";
+            var url = $"http://webapi/api/Transacao/{id}";
             var response = await _httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)
@@ -58,7 +58,7 @@ namespace MoneyManager.Pages.Pages.Transacao
             // Set the CategoriaID for the TransacaoModel
             TransacaoModel.CategoriaID = int.Parse(Request.Form["TransacaoModel.CategoriaID"]);
 
-            var url = $"http://localhost:50000/api/Transacao/{id}";
+            var url = $"http://webapi/api/Transacao/{id}";
             var transacaoJson = JsonConvert.SerializeObject(TransacaoModel);
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Put, url);
@@ -77,7 +77,7 @@ namespace MoneyManager.Pages.Pages.Transacao
 
         private async Task LoadCategoriaList()
         {
-            var url = "http://localhost:50000/api/Categoria";
+            var url = "http://webapi/api/Categoria";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)

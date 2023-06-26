@@ -20,7 +20,7 @@ namespace MoneyManager.Pages.Pages.Categoria
         public async Task<IActionResult> OnGetAsync()
         {
             var httpClient = new HttpClient();
-            var url = "http://localhost:50000/api/Categoria";
+            var url = "http://webapi/api/Categoria";
             var response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)

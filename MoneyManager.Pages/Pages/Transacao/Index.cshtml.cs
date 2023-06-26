@@ -20,7 +20,7 @@ namespace MoneyManager.Pages.Pages.Transacao
         public async Task<IActionResult> OnGetAsync()
         {
             var httpClient = new HttpClient();
-            var url = "http://localhost:50000/api/Transacao";
+            var url = "http://webapi/api/Transacao";
             var response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)

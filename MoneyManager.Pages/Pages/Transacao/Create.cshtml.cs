@@ -39,7 +39,7 @@ namespace MoneyManager.Pages.Pages.Transacao
 
             TransacaoModel.CategoriaID = int.Parse(Request.Form["TransacaoModel.CategoriaID"]);
 
-            var url = "http://localhost:50000/api/Transacao";
+            var url = "http://webapi/api/Transacao";
             var transacaoJson = JsonConvert.SerializeObject(TransacaoModel);
 
             var content = new StringContent(transacaoJson, System.Text.Encoding.UTF8, "application/json");
@@ -59,7 +59,7 @@ namespace MoneyManager.Pages.Pages.Transacao
 
         private async Task LoadCategoriaList()
         {
-            var url = "http://localhost:50000/api/Categoria";
+            var url = "http://webapi/api/Categoria";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
