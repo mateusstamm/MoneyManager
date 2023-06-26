@@ -23,7 +23,7 @@ namespace MoneyManager.Pages.Pages.Categoria
             }
 
             var httpClient = new HttpClient();
-            var url = "http://webapi/api/Categoria";
+            var url = "http://localhost:50000/api/Categoria";
             var response = await httpClient.PostAsJsonAsync(url, CategoriaModel);
 
             if (response.IsSuccessStatusCode)

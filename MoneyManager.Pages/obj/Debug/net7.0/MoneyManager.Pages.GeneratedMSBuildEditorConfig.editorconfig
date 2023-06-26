@@ -1,0 +1,81 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MoneyManager.Pages
+build_property.RootNamespace = MoneyManager.Pages
+build_property.ProjectDir = E:\Arquivos\UTFPR\Disciplinas\Atuais\TDS\MoneyManager\MoneyManager.Pages\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Arquivos\UTFPR\Disciplinas\Atuais\TDS\MoneyManager\MoneyManager.Pages
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Categoria/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Categoria/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Categoria/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Categoria/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Categoria/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Shared/_MainLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9NYWluTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Shared/_MainMenuPartialPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9NYWluTWVudVBhcnRpYWxQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Transacao/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY2FvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Transacao/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY2FvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Transacao/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY2FvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Transacao/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY2FvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/Transacao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY2FvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Arquivos/UTFPR/Disciplinas/Atuais/TDS/MoneyManager/MoneyManager.Pages/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

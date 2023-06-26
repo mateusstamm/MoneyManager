@@ -1,74 +1,65 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoneyManager.Pages.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace MoneyManager.Pages.Pages.Dashboard
 {
-    public class Index : PageModel
+    public class IndexModel : PageModel
     {
         private readonly HttpClient _httpClient;
 
         public decimal GastoTotal { get; set; }
         public decimal ReceitaTotal { get; set; }
         public decimal SaldoTotal { get; set; }
-
-        public List<CategoriaModel> CategoriaList { get; set; }
-        public List<TransacaoModel> TransacaoList { get; set; }
-
-        public DashboardModel(IHttpClientFactory httpClientFactory)
+        public IndexModel(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient();
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task OnGetAsync()
         {
-            await LoadCategoriasAsync();
-            await LoadTransacoesAsync();
-
-            GastoTotal = TransacaoList
-                .Where(t => CategoriaList.Any(c => c.CategoriaID == t.CategoriaID && c.Tipo == TipoCategoria.Gasto))
-                .Sum(t => t.Valor);
-
-            ReceitaTotal = TransacaoList
-                .Where(t => CategoriaList.Any(c => c.CategoriaID == t.CategoriaID && c.Tipo == TipoCategoria.Receita))
-                .Sum(t => t.Valor);
-
-            SaldoTotal = ReceitaTotal - GastoTotal;
-
-            return Page();
+            await LoadGastoTotalAsync();
         }
 
-        private async Task LoadCategoriasAsync()
+        private async Task LoadGastoTotalAsync()
         {
-            var response = await _httpClient.GetAsync("http://webapi/api/Categoria");
-
-            if (response.IsSuccessStatusCode)
+            // Obter a lista de transações
+            var transacoesResponse = await _httpClient.GetAsync("http://localhost:50000/api/Transacao");
+            if (transacoesResponse.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                CategoriaList = JsonConvert.DeserializeObject<List<CategoriaModel>>(content);
+                var transacoesContent = await transacoesResponse.Content.ReadAsStringAsync();
+                var transacoes = JsonConvert.DeserializeObject<List<TransacaoModel>>(transacoesContent);
+
+                // Obter a lista de categorias
+                var categoriasResponse = await _httpClient.GetAsync("http://localhost:50000/api/Categoria");
+                if (categoriasResponse.IsSuccessStatusCode)
+                {
+                    var categoriasContent = await categoriasResponse.Content.ReadAsStringAsync();
+                    var categorias = JsonConvert.DeserializeObject<List<CategoriaModel>>(categoriasContent);
+
+                    // Calcular o Gasto Total
+                    GastoTotal = transacoes
+                        .Where(t => categorias.Any(c => c.CategoriaID == t.CategoriaID && c.Tipo == "Despesa"))
+                        .Sum(t => (decimal)t.Valor);
+
+                    ReceitaTotal = transacoes
+                        .Where(t => categorias.Any(c => c.CategoriaID == t.CategoriaID && c.Tipo == "Receita"))
+                        .Sum(t => (decimal)t.Valor);
+
+                    SaldoTotal = ReceitaTotal - GastoTotal;
+                }
+                else
+                {
+                    // Lidar com o erro de requisição das categorias
+                }
             }
             else
             {
-                // Lidar com o erro de requisição
-            }
-        }
-
-        private async Task LoadTransacoesAsync()
-        {
-            var response = await _httpClient.GetAsync("http://webapi/api/Transacao");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                TransacaoList = JsonConvert.DeserializeObject<List<TransacaoModel>>(content);
-            }
-            else
-            {
-                // Lidar com o erro de requisição
+                // Lidar com o erro de requisição das transações
             }
         }
     }

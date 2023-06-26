@@ -18,14 +18,14 @@ services:
       - 50000:80
     depends_on:
       - db_mysql
-  razorpages:
-    container_name: razorpages
-    build:
-      context: ./MoneyManager.Pages
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - 50001:80
-    depends_on:
-      - db_mysql
-      - webapi
+#  razorpages:
+#    container_name: razorpages
+#    build:
+#      context: ./MoneyManager.Pages
+#      dockerfile: Dockerfile
+#    restart: always
+#    ports:
+#      - 50001:80
+#    depends_on:
+#      - db_mysql
+#      - webapi

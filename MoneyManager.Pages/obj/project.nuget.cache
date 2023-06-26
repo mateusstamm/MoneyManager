@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/l4DhgbkZnFBTYBIIqGBcY9lD6a93NmRULpP1LtktyoGvRYNBzHYLqM7IVEGooGnM9DBePyqVBWwN0EkJVXbjg==",
+  "dgSpecHash": "DM05iK6CzyLLsOqF0qKCfYejLS6ZO4YWss0rP7vOrrwTVqQ/jeVHaDhtOvLpCuq4RjJ0PF40znoZTWfDB8yx3g==",
   "success": true,
-  "projectFilePath": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\Ajuda\\TDS-Atividade\\MoneyManager.Pages\\MoneyManager.Pages.csproj",
+  "projectFilePath": "E:\\Arquivos\\UTFPR\\Disciplinas\\Atuais\\TDS\\MoneyManager\\MoneyManager.Pages\\MoneyManager.Pages.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nocma\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\nocma\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
