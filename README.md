@@ -35,7 +35,7 @@ Money Manager é um aplicativo web para gerenciamento financeiro pessoal, onde o
 
 ## Contribuidores
 
-- [Seu Nome](https://github.com/mateusstamm) - Desenvolvedor
+- [Mateus Stamm](https://github.com/mateusstamm) - Desenvolvedor
 
 ## Licença
 
